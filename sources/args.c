@@ -54,8 +54,17 @@ t_args *args_parse(t_args *args, const int argc, char **argv)
   return (args);
 }
 
-t_args *args_check(t_args *args)
+t_args *args_check(t_args *args, const int argc)
 {
+  if (args->player_nb < 2)
+    return (retstr(NULL, TEXT_ARGS_CHECK_FAILURE, __FILE__, __LINE__));
+
+  if ((uint64_t)argc != (5+(args->player_nb)))
+    return (retstr(NULL, TEXT_ARGS_CHECK_FAILURE, __FILE__, __LINE__));
+
+  if (args->player_size < 1)
+    return (retstr(NULL, TEXT_ARGS_CHECK_FAILURE, __FILE__, __LINE__));
+
   return (args);
 }
 

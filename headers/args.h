@@ -24,7 +24,7 @@ struct s_args
 
 t_args *args_init(t_args *args);                                     /* Initializes the argument structure */
 t_args *args_parse(t_args *args, const int argc, char **argv);       /* Parses the arguments */
-t_args *args_check(t_args *args);                                    /* Checks if they are valid */
+t_args *args_check(t_args *args, const int argc);                    /* Checks if they are valid */
 t_args *args_clean(t_args *args);                                    /* Memory deallocation */
 
 #endif
