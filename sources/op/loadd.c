@@ -17,5 +17,7 @@ uint8_t vm_op_loadd(t_vm *vm)
 
   (vm->reg)[3] = (vm->mem)[address];
 
+  vm->ip += 2;
+
   return (VM_STAT_RUN);
 }
