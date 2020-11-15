@@ -29,6 +29,7 @@ uint8_t (*vm_op_tab[])(t_vm *dxvm) =
   vm_op_popd,
   vm_op_jmp,
   vm_op_cjmp,
+  vm_op_rjmp,
   vm_op_stop,
   vm_op_eq,
   vm_op_neq,

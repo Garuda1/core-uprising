@@ -42,45 +42,47 @@ struct s_game
 };
 
 t_game *game_init (t_game *game, t_args *args);           /* initialize the t_game structure */
+t_game *game_run  (t_game *game);                         /* Let's play bois and gals and others */
 t_game *game_clear(t_game *game);                         /* clear it / free its allocated mem */
 
 t_vm *vm_init(t_vm *vm, t_game *game, const uint64_t id); /* Initialize the t_vm structure */
-int   vm_exec(t_vm *vm);                                  /* Execute on cycle on the VM */
+int   vm_exec(t_vm *vm);                                  /* Execute one cycle on the VM */
 t_vm *vm_load(t_vm *vm, const uint8_t *prog);             /* Load a program on the VM's memory field */
 
 /* Operations */
 extern uint8_t (*vm_op_tab[])(t_vm *);
-uint8_t vm_op_nop    (t_vm *dxvm);
-uint8_t vm_op_add    (t_vm *dxvm);
-uint8_t vm_op_sub    (t_vm *dxvm);
-uint8_t vm_op_xor    (t_vm *dxvm);
-uint8_t vm_op_or     (t_vm *dxvm);
-uint8_t vm_op_not    (t_vm *dxvm);
-uint8_t vm_op_and    (t_vm *dxvm);
-uint8_t vm_op_lshift (t_vm *dxvm);
-uint8_t vm_op_rshift (t_vm *dxvm);
-uint8_t vm_op_loada  (t_vm *dxvm);
-uint8_t vm_op_loadb  (t_vm *dxvm);
-uint8_t vm_op_loadc  (t_vm *dxvm);
-uint8_t vm_op_loadd  (t_vm *dxvm);
-uint8_t vm_op_push   (t_vm *dxvm);
-uint8_t vm_op_pusha  (t_vm *dxvm);
-uint8_t vm_op_pushb  (t_vm *dxvm);
-uint8_t vm_op_pushc  (t_vm *dxvm);
-uint8_t vm_op_pushd  (t_vm *dxvm);
-uint8_t vm_op_popa   (t_vm *dxvm);
-uint8_t vm_op_popb   (t_vm *dxvm);
-uint8_t vm_op_popc   (t_vm *dxvm);
-uint8_t vm_op_popd   (t_vm *dxvm);
-uint8_t vm_op_jmp    (t_vm *dxvm);
-uint8_t vm_op_cjmp   (t_vm *dxvm);
-uint8_t vm_op_stop   (t_vm *dxvm);
-uint8_t vm_op_eq     (t_vm *dxvm);
-uint8_t vm_op_neq    (t_vm *dxvm);
-uint8_t vm_op_less   (t_vm *dxvm);
-uint8_t vm_op_great  (t_vm *dxvm);
-uint8_t vm_op_inc    (t_vm *dxvm);
-uint8_t vm_op_dec    (t_vm *dxvm);
-uint8_t vm_op_hcf    (t_vm *dxvm);
+uint8_t vm_op_nop    (t_vm *vm);
+uint8_t vm_op_add    (t_vm *vm);
+uint8_t vm_op_sub    (t_vm *vm);
+uint8_t vm_op_xor    (t_vm *vm);
+uint8_t vm_op_or     (t_vm *vm);
+uint8_t vm_op_not    (t_vm *vm);
+uint8_t vm_op_and    (t_vm *vm);
+uint8_t vm_op_lshift (t_vm *vm);
+uint8_t vm_op_rshift (t_vm *vm);
+uint8_t vm_op_loada  (t_vm *vm);
+uint8_t vm_op_loadb  (t_vm *vm);
+uint8_t vm_op_loadc  (t_vm *vm);
+uint8_t vm_op_loadd  (t_vm *vm);
+uint8_t vm_op_push   (t_vm *vm);
+uint8_t vm_op_pusha  (t_vm *vm);
+uint8_t vm_op_pushb  (t_vm *vm);
+uint8_t vm_op_pushc  (t_vm *vm);
+uint8_t vm_op_pushd  (t_vm *vm);
+uint8_t vm_op_popa   (t_vm *vm);
+uint8_t vm_op_popb   (t_vm *vm);
+uint8_t vm_op_popc   (t_vm *vm);
+uint8_t vm_op_popd   (t_vm *vm);
+uint8_t vm_op_jmp    (t_vm *vm);
+uint8_t vm_op_cjmp   (t_vm *vm);
+uint8_t vm_op_rjmp   (t_vm *vm);
+uint8_t vm_op_stop   (t_vm *vm);
+uint8_t vm_op_eq     (t_vm *vm);
+uint8_t vm_op_neq    (t_vm *vm);
+uint8_t vm_op_less   (t_vm *vm);
+uint8_t vm_op_great  (t_vm *vm);
+uint8_t vm_op_inc    (t_vm *vm);
+uint8_t vm_op_dec    (t_vm *vm);
+uint8_t vm_op_hcf    (t_vm *vm);
 
 #endif

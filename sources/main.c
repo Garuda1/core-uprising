@@ -9,6 +9,7 @@
 #include "util.h"
 #include "text.h"
 #include "vm.h"
+#include "ui.h"
 
 int main(int argc, char **argv)
 {
@@ -26,6 +27,9 @@ int main(int argc, char **argv)
 
   if (game_init(&game, &args) == NULL)
     return (retstri(EXIT_FAILURE, TEXT_MAIN_FAILURE, __FILE__, __LINE__));
+
+  ui_init();
+
 
   if (args_clean(&args) == NULL)
     return (retstri(EXIT_FAILURE, TEXT_MAIN_FAILURE, __FILE__, __LINE__));

@@ -33,6 +33,27 @@ t_game *game_init(t_game *game, t_args *args)
   return (game);
 }
 
+t_game *game_run(t_game *game)
+{
+  size_t cycle;
+  size_t i;
+
+  cycle = 0;
+
+  /* There currently is no condition for losing */
+  while (1)
+  {
+    /* Each cycle, allow each VM to execute one instruction */
+    for (i=0; i<(game->player_nb); ++i)
+    {
+      vm_exec(&(game->vm[i]));
+      ++cycle;
+    }
+  }
+
+  return (game);
+}
+
 t_game *game_clear(t_game *game)
 {
   free(game->memory);

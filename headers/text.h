@@ -18,4 +18,6 @@
 
 #define TEXT_GAME_INIT_FAILURE  TEXT_FAILURE "game_init: failed to initialize the s_game structure"
 
+#define TEXT_VM_EXEC_HCF        TEXT_FAILURE "vm_exec: MACHINE HALTED AND CAUGHT ON FIRE ! AAAAAAAAAAH"
+
 #endif

@@ -32,15 +32,28 @@ int vm_exec(t_vm *vm)
 {
   uint8_t vmstat;
 
-  while ((vmstat = vm_op_tab[vm->mem[vm->ip]](vm)) != VM_STAT_STOP)
+  vmstat = vm_op_tab[vm->mem[vm->ip]](vm);
+
+  switch (vmstat)
   {
-    if (vmstat == VM_STAT_FATAL)
+    case VM_STAT_RUN:
       break;
 
-    ++(vm->ip);                 /* Increment the instruction pointer */
-    vm->ip %= (vm->mem_size);   /* Increment the instruction pointer */
+    case VM_STAT_STOP:
+      return (VM_STAT_STOP);
+      break;
 
+    case VM_STAT_FATAL:
+      return (retstri(VM_STAT_FATAL, TEXT_VM_EXEC_HCF, __FILE__, __LINE__));
+      break;
+
+    default:
+      break;
   }
+
+  /* Increment the IP */
+  ++(vm->ip);
+  (vm->ip) %= (vm->mem_size);
 
   return (vmstat);
 }
